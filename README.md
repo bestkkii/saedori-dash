@@ -5,22 +5,22 @@
 ## 디렉토리 구조
 
 ```
-📦saedori-dash
- ┣ 📂assets
- ┃ ┣ 📂images
- ┃ ┗ 📜style.css
- ┣ 📂components
- ┃ ┣ 📜interest_detail.py
- ┃ ┣ 📜interest_summarize.py
- ┃ ┣ 📜keyword.py
- ┃ ┣ 📜modal.py
- ┃ ┣ 📜setting.py
- ┃ ┗ 📜title.py
- ┣ 📜app.py
- ┣ 📜callbacks.py
- ┣ 📜layout.py
- ┣ 📜README.md
- ┗ 📜requirements.txt
+my_dash_app/
+├── app.py                          # 메인 실행 파일
+├── layout.py                       # 전체 레이아웃 구성
+├── components/                     # UI 컴포넌트
+│   ├── keyword.py                  # top3, 랜덤 키워드 UI
+│   ├── setting.py                  # 다운로드, 관심사 분야 세팅 버튼 UI
+│   ├── setting.py                  # 다운로드, 관심사 분야 모달 UI
+│   ├── interest_summarize.py       # 관심사 분야 요약 내용 UI
+│   ├── interest_detail.py          # 관심사 분야 세부 내용 UI
+│   └── title.py                    # 로고, 제목 UI
+├── callbacks.py                    # 콜백 함수
+├── assets/      
+│   └── images           
+│   └── style.css
+├── requirements.txt                # 필요한 패키지 목록
+└── README.md                       # 설명서
 ```
 
 ## 실행 방법
