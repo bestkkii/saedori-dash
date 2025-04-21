@@ -4,6 +4,7 @@
 
 ## 디렉토리 구조
 
+```
 📦saedori-dash
  ┣ 📂assets
  ┃ ┣ 📂images
@@ -20,12 +21,12 @@
  ┣ 📜layout.py
  ┣ 📜README.md
  ┗ 📜requirements.txt
+```
 
 ## 실행 방법
 
 1. 필수 패키지 설치
 pip install -r requirements.txt
-
 패키지 추가로 설치했을 경우, 
 pip freeze > requirements.txt
 
