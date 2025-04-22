@@ -6,13 +6,13 @@
 ## 디렉토리 구조
 
 ```
-my_dash_app/
+saedori-dash/
 ├── app.py                          # 메인 실행 파일
 ├── layout.py                       # 전체 레이아웃 구성
 ├── components/                     # UI 컴포넌트
 │   ├── keyword.py                  # top3, 랜덤 키워드 UI
 │   ├── setting.py                  # 다운로드, 관심사 분야 세팅 버튼 UI
-│   ├── setting.py                  # 다운로드, 관심사 분야 모달 UI
+│   ├── modal.py                    # 다운로드, 관심사 분야 모달 UI
 │   ├── interest_summarize.py       # 관심사 분야 요약 내용 UI
 │   ├── interest_detail.py          # 관심사 분야 세부 내용 UI
 │   └── title.py                    # 로고, 제목 UI
@@ -20,8 +20,8 @@ my_dash_app/
 ├── assets/      
 │   └── images           
 │   └── style.css
-├── requirements.txt                # 필요한 패키지 목록
-└── README.md                       # 설명서
+├── requirements.txt                
+└── README.md                       
 ```
 
 
