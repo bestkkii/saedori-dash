@@ -1,8 +1,12 @@
-from dash import html, dcc
+from dash import html
+import dash_bootstrap_components as dbc
 
-# 오늘의 단어 다운로드 버튼
-# def download_btn():
-
-
-# 관심사 분야 선택 버튼
-# def setting_btn():
+def render_setting_buttons():
+    return dbc.Row(
+        [
+            dbc.Col(dbc.Button("다운로드", id="download-button", color="primary"), width="auto"),
+            dbc.Col(dbc.Button("관심사 설정", id="interest-button", color="secondary"), width="auto"),
+        ],
+        className="mb-3",
+        justify="end"
+    )

@@ -1,0 +1,46 @@
+.keyword-box {
+    border: 2px solid #d2f4e8;;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    color: #28a745;
+    font-weight: bold;
+    background-color: #d2f4e8;
+    cursor: default;
+    transition: 0.2s;
+}
+
+.random-box {
+    border: 2px solid #FFC5C5;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    color: #df2525;
+    font-weight: bold;
+    background-color: #FFC5C5;
+    cursor: default;
+    transition: 0.2s;
+}
+
+.keyword-background {
+    border: 2px solid #e2e2e2;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px 10px;
+    background-color: white;
+    cursor: default;
+    transition: 0.2s;
+}
+
+.interest-card {
+    border: 1px solid #d2f4e8;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease-in-out;
+    height: 100%;
+}
+
+.interest-card:hover {
+    background-color: #f4fdfb;
+    transform: scale(1.01);
+}
