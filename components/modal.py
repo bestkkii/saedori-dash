@@ -1,7 +1,7 @@
-import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 
 def render_modals():
-    return dbc.Modal(
+    return dmc.Modal(
         [
         ],
     )

@@ -1,12 +1,9 @@
-from dash import html
-import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 
 def render_setting_buttons():
-    return dbc.Row(
+    return dmc.Group(
         [
-            dbc.Col(dbc.Button("다운로드", id="download-button", color="primary"), width="auto"),
-            dbc.Col(dbc.Button("관심사 설정", id="interest-button", color="secondary"), width="auto"),
+            dmc.Button("다운로드", id="download-button", color="blue"),
+            dmc.Button("관심사 설정", id="interest-button", color="gray"),
         ],
-        className="mb-3",
-        justify="end"
     )

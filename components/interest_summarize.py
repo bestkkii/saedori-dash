@@ -1,11 +1,13 @@
-from dash import html
-import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 
 def render_interest_summary(title="관심사", description="관심사 요약 내용"):
-    return dbc.Card(
-        dbc.CardBody([
-            html.H5(title, className="card-title"),
-            html.P(description, className="card-text"),
-        ]),
-        className="interest-card"
+    return dmc.Card(
+        [
+            dmc.Text(title, weight=700, size="lg", mb="xs"),
+            dmc.Text(description, size="sm", color="dimmed"),
+        ],
+        shadow="sm",
+        radius="md",
+        withBorder=True,
+        h="100%"
     )

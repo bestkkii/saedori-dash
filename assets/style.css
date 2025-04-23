@@ -1,3 +1,12 @@
+.container {
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* 선택사항: 모서리 둥글게 */
+    background-color: #ffffff;
+}
+
 .keyword-box {
     border: 2px solid #d2f4e8;;
     border-radius: 12px;
@@ -8,6 +17,7 @@
     background-color: #d2f4e8;
     cursor: default;
     transition: 0.2s;
+    margin: 30px;
 }
 
 .random-box {
@@ -20,6 +30,7 @@
     background-color: #FFC5C5;
     cursor: default;
     transition: 0.2s;
+    margin: 30px;
 }
 
 .keyword-background {

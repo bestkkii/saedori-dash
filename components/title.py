@@ -1,12 +1,14 @@
-from dash import html, dcc
-import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 
 def render_title():
-    return dbc.Row(
-        [
-            # dbc.Col(html.Img(src="/assets/images/logo.png", height="50px"), width="auto"),
-            dbc.Col(html.H4("세상 돌아가는 이야기로 새로운 아이디어를 얻어봐!", className="text-center"), width=True),
+    return dmc.Center(
+        style={"height": 100, "width": "100%"},
+        children= [
+            dmc.Image(src="/assets/images/SaeDoRi.png", h=50, fit="contain"),
+            dmc.Text(
+                "세상 돌아가는 이야기로 새로운 아이디어를 얻어봐!",
+                # ta="center",
+                # style={"flex": 1, "textAlign": "center", "fontSize": "1.25rem", "fontWeight": "bold"}
+            ),
         ],
-        className="my-3 align-items-center",
-        justify="center",
     )
