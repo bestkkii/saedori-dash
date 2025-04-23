@@ -13,33 +13,27 @@ def create_layout():
         children=[
             dmc.Container(
                 render_title(),
-                size="1400px",
-                className="container"
+                className="small-container"
             ),
 
             dmc.Container(
                 render_today_word(),
-                size="1400px",
-                className="container"
+                className="small-container"
             ),
 
             dmc.Container(
                 render_random_word(),
-                size="1400px",
-                className="container"
+                className="small-container"
             ),
+
             dmc.Container(
                 render_setting_buttons(),
-                size="1400px",
-                className="container"
+                className="setting-container"
             ),
 
-            # render_interest_summary(),
-            # dmc.Space(h=30),
-
-            # render_interest_detail(),
-            # dmc.Space(h=30),
-
-            # render_modals(),
+            dmc.Container(
+                render_interest_summary(),
+                className="big-container"
+            ),
         ]
     )

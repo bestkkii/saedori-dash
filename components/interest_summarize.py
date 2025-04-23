@@ -1,13 +1,35 @@
 import dash_mantine_components as dmc
+from dash import html
 
-def render_interest_summary(title="관심사", description="관심사 요약 내용"):
-    return dmc.Card(
-        [
-            dmc.Text(title, weight=700, size="lg", mb="xs"),
-            dmc.Text(description, size="sm", color="dimmed"),
-        ],
-        shadow="sm",
-        radius="md",
-        withBorder=True,
-        h="100%"
+def render_music():
+    return dmc.Paper(
+        dmc.GridCol("Music summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_coin():
+    return dmc.Paper(
+        dmc.GridCol("Coin summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_news():
+    return dmc.Paper(
+        dmc.GridCol("News summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_realtime_search():
+    return dmc.Paper(
+        dmc.GridCol("Realtime Search Words summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_interest_summary():
+    return dmc.Grid(
+        children=[
+            dmc.GridCol(render_music(), span=4),
+            dmc.GridCol(render_coin(), span=4),
+            dmc.GridCol(render_news(), span=4),
+        ]
     )

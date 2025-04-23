@@ -6,11 +6,11 @@ import requests
 
 app = dash.Dash(__name__,external_stylesheets=dmc.styles.ALL)
 
-app.title = "새도리 대시보드"
+app.title = "새도리"
 app.layout = dmc.MantineProvider(
     theme={
         "colorScheme": "light",
-        "white": "#FAFBFF",
+        "white": "#FAFBFF",         # 배경색
     },
     children=create_layout(),
 )
