@@ -1,46 +1,107 @@
+/* 
+Title, 오늘의 단어, 랜덤 단어, 다운로드 및 설정 감싸는 컨테이너 
+*/
+
+.small-container {
+    height: 80px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* 선택사항: 모서리 둥글게 */
+    background-color: #ffffff;
+}
+
+
+/* 
+Title 관련 
+*/
+
+.title-container {
+    align-items: center;
+    height: 80px;
+}
+.title-text {
+    text-align: center;
+    flex: 1;
+}
+
+
+/* 
+오늘의 단어, 랜덤 키워드 관련 
+*/
+
+/* container 내부 text와 keyword box 배치 관련 */
+.keyword-grid {
+    display: flex;
+    align-items: center;
+    height: 80px; 
+    padding: 10px 50px;
+}
+
+/* top3 keyword box 관련 */
 .keyword-box {
     border: 2px solid #d2f4e8;;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px 0;
+    padding: 16px 0;
     color: #28a745;
     font-weight: bold;
     background-color: #d2f4e8;
-    cursor: default;
-    transition: 0.2s;
 }
 
+/* random keyword box 관련 */
 .random-box {
     border: 2px solid #FFC5C5;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px;
+    padding: 16px 0;
     color: #df2525;
     font-weight: bold;
     background-color: #FFC5C5;
-    cursor: default;
-    transition: 0.2s;
 }
 
-.keyword-background {
-    border: 2px solid #e2e2e2;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 10px 10px;
-    background-color: white;
-    cursor: default;
-    transition: 0.2s;
+/* random keyword box 사이의 text(오늘은, 그리고, 조합을 추천해!) 관련 */
+.random-word-text {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.interest-card {
-    border: 1px solid #d2f4e8;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    transition: 0.2s ease-in-out;
-    height: 100%;
+
+/* 
+setting 관련
+*/
+
+.setting-container {
+    height: 60px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.interest-card:hover {
-    background-color: #f4fdfb;
-    transform: scale(1.01);
+
+/* 
+관심사 분야 Summary 
+*/
+
+/* Summary 3개 감싸는 컨테이너 */
+.big-container {
+    height: 400px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    background-color: #ffffff;
+}
+
+/* Summary box */
+.summary-grid {
+    display: flex;
+    /* align-items: center; */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    background-color: #ffffff;
 }

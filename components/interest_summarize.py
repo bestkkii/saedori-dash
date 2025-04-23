@@ -1,11 +1,35 @@
+import dash_mantine_components as dmc
 from dash import html
-import dash_bootstrap_components as dbc
 
-def render_interest_summary(title="관심사", description="관심사 요약 내용"):
-    return dbc.Card(
-        dbc.CardBody([
-            html.H5(title, className="card-title"),
-            html.P(description, className="card-text"),
-        ]),
-        className="interest-card"
+def render_music():
+    return dmc.Paper(
+        dmc.GridCol("Music summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_coin():
+    return dmc.Paper(
+        dmc.GridCol("Coin summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_news():
+    return dmc.Paper(
+        dmc.GridCol("News summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_realtime_search():
+    return dmc.Paper(
+        dmc.GridCol("Realtime Search Words summary", ta="center"),
+        className="summary-grid"
+    )
+
+def render_interest_summary():
+    return dmc.Grid(
+        children=[
+            dmc.GridCol(render_music(), span=4),
+            dmc.GridCol(render_coin(), span=4),
+            dmc.GridCol(render_news(), span=4),
+        ]
     )
