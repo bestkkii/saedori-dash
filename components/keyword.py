@@ -10,12 +10,20 @@ def render_today_word():
         className="keyword-grid",
         children=[
             dmc.GridCol(
-                dmc.Paper(
-                    dmc.Text(word, ta="center", fw=600),
-                    className="keyword-box"
-                ),
-                span=4
-            ) for word in words
+                dmc.Text(words[0], ta="center", fw=600),
+                className="keyword-box",
+                span=3.3
+            ),
+            dmc.GridCol(
+                dmc.Text(words[1], ta="center", fw=600),
+                className="keyword-box",
+                span=3.3
+            ),
+            dmc.GridCol(
+                dmc.Text(words[2], ta="center", fw=600),
+                className="keyword-box",
+                span=3.3
+            ),
         ]
     )
 
@@ -31,10 +39,8 @@ def render_random_word():
                 className="random-word-text"
             ),
             dmc.GridCol(
-                dmc.Paper(
-                    dmc.GridCol("랜덤 단어 1", ta="center"),
-                    className="random-box"
-                ),
+                dmc.Text("랜덤 단어 1", ta="center"),
+                className="random-box",
                 span=3
             ),
             dmc.GridCol(
@@ -43,10 +49,8 @@ def render_random_word():
                 className="random-word-text"
             ),
             dmc.GridCol(
-                dmc.Paper(
-                    dmc.GridCol("랜덤 단어 2", ta="center"),
-                    className="random-box"
-                ),
+                dmc.Text("랜덤 단어 2", ta="center"),
+                className="random-box",
                 span=3
             ),
             dmc.GridCol(
