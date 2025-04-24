@@ -1,5 +1,6 @@
 import dash_mantine_components as dmc
-from dash import html
+from dash import html, dcc, callback, Input, Output
+from .coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
 
 def render_music():
@@ -40,26 +41,38 @@ def render_music():
 
 def render_coin():
     return dmc.Container(
-        dmc.GridCol("Coin summary", ta="center"),
+        dmc.Stack(coin_summary_view(), ta="center"),
         className="summary-grid"
     )
 
 def render_news():
     return dmc.Container(
-        dmc.GridCol("News summary", ta="center"),
+        dmc.Stack("News summary", ta="center"),
         className="summary-grid",
     )
 
 def render_realtime_search():
     return dmc.Container(
-        dmc.GridCol("Realtime Search Words summary", ta="center"),
+        dmc.Stack([
+                    dmc.Text("실시간 검색어 랭킹", fw=600, fz="h5"),
+                    dmc.Text("대한민국에서의 구글 실시간 검색어 순위입니다.", c="dimmed", size="sm"),
+        ]),
+        className="summary-grid"
     )
 
 def render_interest_summary():
-    return dmc.Grid(
+    return dmc.Carousel(
         children=[
-            dmc.GridCol(render_music(), span=4),
-            dmc.GridCol(render_coin(), span=4,),
-            dmc.GridCol(render_news(), span=4,),
+            dmc.CarouselSlide(render_music()),
+            dmc.CarouselSlide(render_coin()),
+            dmc.CarouselSlide(render_news()),
+            dmc.CarouselSlide(render_realtime_search()),
         ],
-    )
+        id="carousel-responsive",
+        withIndicators=True,
+        slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
+        slideGap={"base": 0, "sm": "md"},
+        loop=True,
+        align="start"
+    ),
+
