@@ -1,4 +1,6 @@
 import dash_mantine_components as dmc
+from dash import html, dcc, callback, Input, Output
+from .coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
 
 def render_music():
@@ -39,7 +41,7 @@ def render_music():
 
 def render_coin():
     return dmc.Container(
-        dmc.Stack("Coin summary", ta="center"),
+        dmc.Stack(coin_summary_view(), ta="center"),
         className="summary-grid"
     )
 
