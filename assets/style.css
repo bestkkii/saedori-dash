@@ -4,7 +4,7 @@ Title, 오늘의 단어, 랜덤 단어, 다운로드 및 설정 감싸는 컨테
 
 .small-container {
     height: 80px;
-    width: 80%;
+    max-width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -37,6 +37,7 @@ Title 관련
     align-items: center;
     height: 80px; 
     padding: 10px 50px;
+    justify-content: center;
 }
 
 /* top3 keyword box 관련 */
@@ -48,6 +49,7 @@ Title 관련
     color: #28a745;
     font-weight: bold;
     background-color: #d2f4e8;
+    margin: 0 40px; 
 }
 
 /* random keyword box 관련 */
@@ -76,7 +78,7 @@ setting 관련
 
 .setting-container {
     height: 60px;
-    width: 80%;
+    max-width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -89,7 +91,7 @@ setting 관련
 /* Summary 3개 감싸는 컨테이너 */
 .big-container {
     height: 400px;
-    width: 80%;
+    max-width: 80%;
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -99,9 +101,11 @@ setting 관련
 
 /* Summary box */
 .summary-grid {
+    height: 380px;
     display: flex;
-    /* align-items: center; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px; 
     background-color: #ffffff;
+    padding: 20px 20px;
 }
+
