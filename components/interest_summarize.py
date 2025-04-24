@@ -1,6 +1,6 @@
 import dash_mantine_components as dmc
 from dash import html
-from request.fetch_music_data import parse_music_data
+from fetch.fetch_music_data import parse_music_data
 
 def render_music():
     # api 호출을 통해 가져온 데이터 저장
