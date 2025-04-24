@@ -1,0 +1,37 @@
+/* 코인 */
+
+.coin-summary-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 10px 0;
+}
+
+.coin-divide-line {
+    width: 100%; /* 구분선의 너비를 조정 */
+    margin: 30px 0; /* 구분선 위아래 여백 */
+    color: lightgray;
+    border: 1px solid lightgray;
+    
+}
+
+.coin-position {
+    display: flex;
+    justify-content: space-between; /* 왼쪽과 오른쪽으로 정렬 */
+    width: 100%; /* 전체 너비 사용 */
+}
+
+.coin-left-text {
+    margin-left: 30px; /* 기본 여백 제거 */
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.coin-right-text {
+    margin-right: 30px; /* 기본 여백 제거 */
+    text-align: right; /* 오른쪽 정렬 */
+    font-size: 18px;
+    font-weight: 600;
+}
