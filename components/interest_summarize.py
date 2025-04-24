@@ -1,16 +1,42 @@
 import dash_mantine_components as dmc
 from dash import html
+from request.fetch_music_data import parse_music_data
 
 def render_music():
-    return dmc.Container(
-        dmc.Stack(
-            children= [
-                dmc.Text("뮤직 차트"),
-                dmc.Text("가격은 30초 주기로 갱신됩니다."),
-            ]
-        ),
-        className="summary-grid"
-    )
+    # api 호출을 통해 가져온 데이터 저장
+    musics = parse_music_data()
+
+    def create_chart(title, chart_data):
+        return dmc.GridCol([
+            dmc.Text(title),
+            dmc.Stack([
+                create_chart_row(item["rank"], item["title"], item["artist"])
+                for item in chart_data
+            ]),
+        ], span=6)
+
+    def create_chart_row(rank, title, artist):
+        return dmc.Grid([
+            dmc.GridCol(dmc.Text(str(rank)), span="content"),
+            dmc.GridCol(
+                dmc.Stack([
+                    dmc.Text(title),
+                    dmc.Text(artist),
+                ]), span="content",
+            ),
+        ])
+
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Text("뮤직 차트"),
+            dmc.Text("30초 주기로 갱신됩니다."),
+            dmc.Grid([
+                create_chart(title, chart_data)
+                for title, chart_data in musics.items()
+            ]),
+        ])
+    ], className="summary-grid")
+    
 
 def render_coin():
     return dmc.Container(

@@ -102,7 +102,6 @@ setting 관련
 /* Summary box */
 .summary-grid {
     height: 380px;
-    display: flex;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px; 
     background-color: #ffffff;
