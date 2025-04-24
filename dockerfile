@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir gunicorn==23.0.0
 COPY . .
 
 # Dash 앱 실행 (Gunicorn)
-CMD ["ENV=prod", "gunicorn", "--bind", "0.0.0.0:8050", "app:app.server"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8050", "app:app.server"]
