@@ -15,6 +15,7 @@ def coin_summary_view():
             html.P(f'{name.split()[0]} 가격', className='coin-right-text', id=price_id)
         ], className='coin-position'))
         coin_divs.append(html.Hr(className="coin-divide-line"))
+    coin_divs.pop()
 
     intervals = [
         dcc.Interval(id='interval-component-bit', interval=intervals, n_intervals=0),

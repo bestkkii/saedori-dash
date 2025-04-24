@@ -24,13 +24,19 @@ def update_price(a, b, c):
     response = requests.get(url, params=querystring)
     data = response.json()
 
-    bit_price = data[0]['trade_price']
-    eth_price = data[1]['trade_price']
-    xrp_price = data[2]['trade_price']
+    # 시세 정보와 변동 정보 추출
+    prices_changes = [(coin['trade_price'], update_change(coin['change'])) for coin in data]
+
     krw_usd_flag += 1
 
-    return (
-        f'{bit_price:,} {market_type}',
-        f'{eth_price:,} {market_type}',
-        f'{xrp_price:,} {market_type}'
+    return tuple(
+        f'{price:,} {market_type} {change}' for price, change in prices_changes
     )
+
+def update_change(change):
+    change_symbols = {
+        'RISE': '▲',
+        'FALL': '▼'
+    }
+    return change_symbols.get(change, 'ᐉ')
+        
