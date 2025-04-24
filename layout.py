@@ -35,5 +35,6 @@ def create_layout():
                 render_interest_summary(),
                 className="big-container"
             ),
+            render_modals()
         ]
     )
