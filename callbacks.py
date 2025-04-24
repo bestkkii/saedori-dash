@@ -1,6 +1,7 @@
 from dash import callback, Input, Output, State
 import plotly.express as px
 import pandas as pd
+import requests
 
 # 관심사 설정 버튼 클릭 시 모달 열기
 @callback(
