@@ -1,12 +1,13 @@
 import dash_mantine_components as dmc
 from dash import html
+from config import Config
 
 def render_title():
     return dmc.Flex(
         className="title-container",
         children=[
             dmc.Image(
-                src="/assets/images/SaeDoRi.png",
+                src=f"{Config.ASSETS_PATH}/images/SaeDoRi.png",
                 h=50,
                 fit="contain"
             ),
