@@ -11,7 +11,7 @@
 
 .coin-divide-line {
     width: 100%; /* 구분선의 너비를 조정 */
-    margin: 30px 0; /* 구분선 위아래 여백 */
+    margin: 10px 0; /* 구분선 위아래 여백 */
     color: lightgray;
     border: 1px solid lightgray;
     
