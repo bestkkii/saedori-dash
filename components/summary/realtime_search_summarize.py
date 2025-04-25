@@ -2,7 +2,6 @@ import dash_mantine_components as dmc
 
 
 def create_realtime_search_summary(realtime_search_keyword):
-    print(realtime_search_keyword)
     return dmc.GridCol([
             dmc.Grid([
                 dmc.GridCol(dmc.Stack([
