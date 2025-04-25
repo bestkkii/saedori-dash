@@ -4,7 +4,7 @@ from components.title import render_title
 from components.keyword import render_random_word, render_today_word
 from components.setting import render_setting_buttons
 from components.interest_detail import render_interest_detail
-from components.modal import render_modals
+from components.modal import interest_modal, download_modal
 from dash import dcc
 
 def create_layout():
@@ -40,6 +40,7 @@ def create_layout():
                 className="detail-container",
             ),
             
-            render_modals()
+            interest_modal(),
+            download_modal()
         ]
     )

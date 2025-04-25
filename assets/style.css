@@ -115,8 +115,16 @@ setting 관련
 /*
 Modal 관련
 */
-.modal-box {
+.interest-modal-box {
     display: flex;
+    flex-direction: column;
+    align-items: center;  /* 수평 중앙 정렬 */
+    justify-content: center;  /* 수직 중앙 정렬 */
+    text-align: center;  /* 텍스트 중앙 정렬 */
+}
+
+.download-modal-box {
+    /* display: flex; */
     flex-direction: column;
     align-items: center;  /* 수평 중앙 정렬 */
     justify-content: center;  /* 수직 중앙 정렬 */

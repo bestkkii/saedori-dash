@@ -36,7 +36,7 @@ def select_interest(n_clicks, is_open):
 # 관심 분야 선택 후 확인 버튼 클릭 시 저장
 @callback(
     Output({'type': 'storage', 'index': 'local'}, "data"),
-    Input("modal-submit-button", "n_clicks"),
+    Input("interest-submit-button", "n_clicks"),
     State("interest-multiselect", "value"),
     prevent_initial_call=True
 )
@@ -105,3 +105,16 @@ def show_detail(n_clicks):
         return dmc.Text("실시간 검색어 상세 설명입니다."), True
 
     return "", False
+
+
+# 다운로드 버튼 클릭 시 모달 열기
+@callback(
+    Output("download-modal", "opened"), 
+    Input("download-button", "n_clicks"), 
+    State("download-modal", "opened"), 
+    prevent_initial_call=True
+)
+def select_donwload(n_clicks, is_open):
+    if n_clicks:
+        return not is_open
+    return is_open
