@@ -1,4 +1,5 @@
 from dash import html, dcc
+import dash_mantine_components as dmc
 
 def coin_summary_view():
     coins = [
