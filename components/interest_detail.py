@@ -1,7 +1,9 @@
 import dash_mantine_components as dmc
 from dash import html
 from fetch.fetch_music_data import parse_music_data
+from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
 from .detail.music_detail import create_chart
+from .detail.realtime_search_detail import create_realtime_search_chart
 
 def render_interest_detail():
     return dmc.Collapse(
@@ -21,6 +23,25 @@ def render_music_detail():
             dmc.Grid([
                 create_chart(title, chart_data)
                 for title, chart_data in musics.items()
+            ]),
+        ])
+    ], className="detail-grid")
+
+
+def render_realtime_search_detail():
+    realtime_search_keywords = parse_realtime_search_keyword_data()
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Grid([
+                dmc.GridCol([
+                    dmc.Text("실시간 검색어 차트", fw=600, fz="h5"),
+                ], span=6),
+                dmc.GridCol(dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm")),
+            ]),
+            dmc.Space(h=5),
+            dmc.Grid([
+                create_realtime_search_chart(index, value)
+                for index, value in realtime_search_keywords.items()
             ]),
         ])
     ], className="detail-grid")

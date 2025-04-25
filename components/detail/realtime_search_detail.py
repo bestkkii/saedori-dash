@@ -1,35 +1,29 @@
 import dash_mantine_components as dmc
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
+from dash import html
 
-def render_realtime_search_detail():
-    def create_chart(country, keyword):
+def create_realtime_search_chart(country, realtime_search_keyword):
+        left_item = realtime_search_keyword[:5]
+        right_item = realtime_search_keyword[5:]
         return dmc.GridCol([
-            dmc.Text(country),
-            dmc.Stack([
-                create_chart_row(item["index"], item["value"])
-                for item in keyword
-            ]),
+            dmc.Grid([
+                dmc.GridCol(dmc.Stack([
+                    create_realtime_search_chart_row(item["index"], item["value"])
+                    for item in left_item]), span=5
+                ),
+                dmc.GridCol(dmc.Stack([
+                    create_realtime_search_chart_row(item["index"], item["value"])
+                    for item in right_item]), span=5
+                )
+            ])
         ], span=6)
 
-    def create_chart_row(rank, keyword):
-        return dmc.Grid([
-            dmc.GridCol(dmc.Text(str(rank)), span="content"),
-            dmc.GridCol(
-                dmc.Stack([
-                    dmc.Text(keyword),
-                ]), span="content",
-            ),
-        ])
-    
-    realtime_search_keywords = parse_realtime_search_keyword_data()
-
+def create_realtime_search_chart_row(rank, realtime_search_keyword):
     return dmc.Box([
-        dmc.Divider(my=10),
-            dmc.Text("실시간 검색어 세부 정보", fw=600, fz='h5'),
-            dmc.Text("대한민국, 미국에서의 실시간 구글 인기 검색어 순위입니다.", c='dimmed', size='sm'),
-            dmc.Box(id="realtime-search-detail-content", mt=10),
-            dmc.Grid([
-                create_chart(country, keyword)
-                for country, keyword in realtime_search_keywords.items()
-            ]),
+        dmc.Grid([
+            dmc.GridCol(dmc.Text(str(rank), fw=600), span=4),
+            dmc.GridCol(dmc.Text(realtime_search_keyword, fw=600), span="content"),
+            dmc.GridCol(dmc.Divider()),
+                
+        ])
     ])

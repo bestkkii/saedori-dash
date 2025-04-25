@@ -5,7 +5,7 @@ import requests
 import dash_mantine_components as dmc
 from dash.dependencies import ALL
 from dash import ctx
-from components.interest_detail import render_music_detail
+from components.interest_detail import render_music_detail, render_realtime_search_detail
 from components.interest_summarize import render_interest_summary
 
 # 로컬 스토리지에 저장된 관심사 불러오기
@@ -102,6 +102,5 @@ def show_detail(n_clicks):
     elif name == "news":
         return dmc.Text("뉴스 상세 설명입니다."), True
     elif name == "realtime":
-        return dmc.Text("실시간 검색어 상세 설명입니다."), True
-
+        return render_realtime_search_detail(), True
     return "", False
