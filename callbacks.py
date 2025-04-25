@@ -5,6 +5,7 @@ import requests
 import dash_mantine_components as dmc
 from dash.dependencies import ALL
 from dash import ctx
+from components.interest_detail import render_music_detail
 
 # 관심사 설정 버튼 클릭 시 모달 열기
 @callback(
@@ -98,7 +99,7 @@ def show_detail(n_clicks):
     name = triggered["name"]
 
     if name == "music":
-        return dmc.Text("음악 상세 설명입니다."), True
+        return render_music_detail(), True
     elif name == "coin":
         return dmc.Text("코인 상세 설명입니다."), True
     elif name == "news":

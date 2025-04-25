@@ -2,15 +2,16 @@ import dash_mantine_components as dmc
 from dash import html, dcc, callback, Input, Output
 from .summary.coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
-from .summary.music import create_chart
+from .summary.music_summarize import create_chart
 from .interest_detail import render_interest_detail
 
 def render_music():
     musics = parse_music_data()
     return dmc.Container([
         dmc.Stack([
-            dmc.Text("뮤직 차트"),
-            dmc.Text("30초 주기로 갱신됩니다."),
+            dmc.Text("뮤직 차트", fw=600, fz="h5"),
+            dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm"),
+            dmc.Space(h=5),
             dmc.Grid([
                 create_chart(title, chart_data)
                 for title, chart_data in musics.items()
@@ -33,8 +34,8 @@ def render_news():
 def render_realtime_search():
     return dmc.Container(
         dmc.Stack([
-                    dmc.Text("실시간 검색어 랭킹", fw=600, fz="h5"),
-                    dmc.Text("대한민국에서의 구글 실시간 검색어 순위입니다.", c="dimmed", size="sm"),
+            dmc.Text("실시간 검색어 랭킹", fw=600, fz="h5"),
+            dmc.Text("대한민국에서의 구글 실시간 검색어 순위입니다.", c="dimmed", size="sm"),
         ]),
         className="summary-grid"
     )

@@ -19,16 +19,18 @@ def parse_music_data():
         return charts
 
     latest = data[-1]["music"]
-    for i, item in enumerate(latest.get("domestic", [])[:5], start=1):
+    for i, item in enumerate(latest.get("domestic", [])[:10], start=1):
         charts["국내 차트"].append({
             "rank": i,
             "title": item.get("title", ""),
-            "artist": item.get("singer", "")
+            "artist": item.get("singer", ""),
+            "url": item.get("url", "")
         })
-    for i, item in enumerate(latest.get("global", [])[:5], start=1):
+    for i, item in enumerate(latest.get("global", [])[:10], start=1):
         charts["해외 차트"].append({
             "rank": i,
             "title": item.get("title", ""),
-            "artist": item.get("singer", "")
+            "artist": item.get("singer", ""),
+            "url": item.get("url", "")
         })
     return charts
