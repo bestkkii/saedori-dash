@@ -1,32 +1,11 @@
 import dash_mantine_components as dmc
 from dash import html, dcc, callback, Input, Output
-from .coin import coin_summary_view
+from .summary.coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
+from .summary.music import create_chart
 
 def render_music():
-    # api 호출을 통해 가져온 데이터 저장
     musics = parse_music_data()
-
-    def create_chart(title, chart_data):
-        return dmc.GridCol([
-            dmc.Text(title),
-            dmc.Stack([
-                create_chart_row(item["rank"], item["title"], item["artist"])
-                for item in chart_data
-            ]),
-        ], span=6)
-
-    def create_chart_row(rank, title, artist):
-        return dmc.Grid([
-            dmc.GridCol(dmc.Text(str(rank)), span="content"),
-            dmc.GridCol(
-                dmc.Stack([
-                    dmc.Text(title),
-                    dmc.Text(artist),
-                ]), span="content",
-            ),
-        ])
-
     return dmc.Container([
         dmc.Stack([
             dmc.Text("뮤직 차트"),
@@ -38,7 +17,6 @@ def render_music():
         ])
     ], className="summary-grid")
     
-
 def render_coin():
     return dmc.Container(
         dmc.Stack(coin_summary_view(), ta="center"),
