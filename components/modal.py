@@ -18,7 +18,7 @@ def render_modals():
             dmc.Text(id="interest-select-view"),
             dmc.Space(h=20),
             dmc.Button("확인", id="modal-submit-button"),
-            dcc.Store(id="saved-interest"),     # 세션별 저장
+            dcc.Store(id={'type': 'storage', 'index': 'local'}, storage_type='local'),
             dmc.Text(id="interest-select-print-view"),
         ],
         className="modal-box"

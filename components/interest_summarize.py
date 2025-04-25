@@ -1,32 +1,12 @@
 import dash_mantine_components as dmc
 from dash import html, dcc, callback, Input, Output
-from .coin import coin_summary_view
+from .summary.coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
+from .summary.music import create_chart
+from .interest_detail import render_interest_detail
 
 def render_music():
-    # api 호출을 통해 가져온 데이터 저장
     musics = parse_music_data()
-
-    def create_chart(title, chart_data):
-        return dmc.GridCol([
-            dmc.Text(title),
-            dmc.Stack([
-                create_chart_row(item["rank"], item["title"], item["artist"])
-                for item in chart_data
-            ]),
-        ], span=6)
-
-    def create_chart_row(rank, title, artist):
-        return dmc.Grid([
-            dmc.GridCol(dmc.Text(str(rank)), span="content"),
-            dmc.GridCol(
-                dmc.Stack([
-                    dmc.Text(title),
-                    dmc.Text(artist),
-                ]), span="content",
-            ),
-        ])
-
     return dmc.Container([
         dmc.Stack([
             dmc.Text("뮤직 차트"),
@@ -38,7 +18,6 @@ def render_music():
         ])
     ], className="summary-grid")
     
-
 def render_coin():
     return dmc.Container(
         dmc.Stack(coin_summary_view(), ta="center"),
@@ -61,18 +40,50 @@ def render_realtime_search():
     )
 
 def render_interest_summary():
-    return dmc.Carousel(
-        children=[
-            dmc.CarouselSlide(render_music()),
-            dmc.CarouselSlide(render_coin()),
-            dmc.CarouselSlide(render_news()),
-            dmc.CarouselSlide(render_realtime_search()),
-        ],
-        id="carousel-responsive",
-        withIndicators=True,
-        slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
-        slideGap={"base": 0, "sm": "md"},
-        loop=True,
-        align="start"
-    ),
-
+    return html.Div([ 
+        dmc.Carousel(
+            children=[
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_music()),
+                        id={"type": "carousel-slide", "name": "music"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_coin()),
+                        id={"type": "carousel-slide", "name": "coin"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_news()),
+                        id={"type": "carousel-slide", "name": "news"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_realtime_search()),
+                        id={"type": "carousel-slide", "name": "realtime"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+            ],
+            id="carousel-responsive",
+            withIndicators=True,
+            slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
+            slideGap={"base": 0, "sm": "md"},
+            loop=True,
+            align="start",
+            controlsOffset="0px",
+            controlSize=32,
+            className="carousel-container",
+        ),
+    ])
