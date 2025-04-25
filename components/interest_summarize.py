@@ -45,7 +45,7 @@ def render_interest_summary():
             children=[
                 dmc.CarouselSlide(
                     html.Div(
-                        dmc.Paper(render_music(), pl="xl"),
+                        dmc.Paper(render_music()),
                         id={"type": "carousel-slide", "name": "music"},
                         n_clicks=0,
                         style={"cursor": "pointer"}
@@ -53,7 +53,7 @@ def render_interest_summary():
                 ),
                 dmc.CarouselSlide(
                     html.Div(
-                        dmc.Paper(render_coin(), pl="xl"),
+                        dmc.Paper(render_coin()),
                         id={"type": "carousel-slide", "name": "coin"},
                         n_clicks=0,
                         style={"cursor": "pointer"}
@@ -61,7 +61,7 @@ def render_interest_summary():
                 ),
                 dmc.CarouselSlide(
                     html.Div(
-                        dmc.Paper(render_news(), pl="xl"),
+                        dmc.Paper(render_news()),
                         id={"type": "carousel-slide", "name": "news"},
                         n_clicks=0,
                         style={"cursor": "pointer"}
@@ -69,7 +69,7 @@ def render_interest_summary():
                 ),
                 dmc.CarouselSlide(
                     html.Div(
-                        dmc.Paper(render_realtime_search(), pl="xl"),
+                        dmc.Paper(render_realtime_search()),
                         id={"type": "carousel-slide", "name": "realtime"},
                         n_clicks=0,
                         style={"cursor": "pointer"}
@@ -81,6 +81,9 @@ def render_interest_summary():
             slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
             slideGap={"base": 0, "sm": "md"},
             loop=True,
-            align="start"
+            align="start",
+            controlsOffset="0px",
+            controlSize=32,
+            className="carousel-container",
         ),
     ])
