@@ -35,3 +35,11 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+/* 뮤직 */
+.chart-row {
+    background-color: #F6F6F6;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 20px 20px;
+}
