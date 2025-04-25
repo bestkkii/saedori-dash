@@ -3,6 +3,7 @@ from dash import html, dcc, callback, Input, Output
 from .summary.coin import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
 from .summary.music import create_chart
+from .interest_detail import render_interest_detail
 
 def render_music():
     musics = parse_music_data()
@@ -39,18 +40,47 @@ def render_realtime_search():
     )
 
 def render_interest_summary():
-    return dmc.Carousel(
-        children=[
-            dmc.CarouselSlide(render_music()),
-            dmc.CarouselSlide(render_coin()),
-            dmc.CarouselSlide(render_news()),
-            dmc.CarouselSlide(render_realtime_search()),
-        ],
-        id="carousel-responsive",
-        withIndicators=True,
-        slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
-        slideGap={"base": 0, "sm": "md"},
-        loop=True,
-        align="start"
-    ),
-
+    return html.Div([ 
+        dmc.Carousel(
+            children=[
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_music(), pl="xl"),
+                        id={"type": "carousel-slide", "name": "music"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_coin(), pl="xl"),
+                        id={"type": "carousel-slide", "name": "coin"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_news(), pl="xl"),
+                        id={"type": "carousel-slide", "name": "news"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_realtime_search(), pl="xl"),
+                        id={"type": "carousel-slide", "name": "realtime"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                ),
+            ],
+            id="carousel-responsive",
+            withIndicators=True,
+            slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},
+            slideGap={"base": 0, "sm": "md"},
+            loop=True,
+            align="start"
+        ),
+    ])

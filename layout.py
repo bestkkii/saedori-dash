@@ -33,8 +33,16 @@ def create_layout():
 
             dmc.Container(
                 render_interest_summary(),
-                className="big-container"
+                className="big-container",
+                style={"marginTop": "50px"}
             ),
+
+            dmc.Container(
+                render_interest_detail(),
+                className="detail-container",
+                style={"marginTop": "50px"}
+            ),
+            
             render_modals()
         ]
     )
