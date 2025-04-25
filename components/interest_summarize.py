@@ -40,18 +40,13 @@ def render_realtime_search():
         className="summary-grid"
     )
 
-def render_interest_summary():
-    return html.Div([ 
-        dmc.Carousel(
-            children=[
-                dmc.CarouselSlide(
-                    html.Div(
-                        dmc.Paper(render_music()),
-                        id={"type": "carousel-slide", "name": "music"},
-                        n_clicks=0,
-                        style={"cursor": "pointer"}
-                    )
-                ),
+def render_interest_summary(selected_items):
+
+    slides = []
+
+    for item in selected_items:
+        if item == "코인":
+            slides.append(
                 dmc.CarouselSlide(
                     html.Div(
                         dmc.Paper(render_coin()),
@@ -59,7 +54,21 @@ def render_interest_summary():
                         n_clicks=0,
                         style={"cursor": "pointer"}
                     )
-                ),
+                )
+            )
+        elif item == "노래":
+            slides.append(
+                dmc.CarouselSlide(
+                    html.Div(
+                        dmc.Paper(render_music()),
+                        id={"type": "carousel-slide", "name": "music"},
+                        n_clicks=0,
+                        style={"cursor": "pointer"}
+                    )
+                )
+            )
+        elif item == "뉴스":
+            slides.append(
                 dmc.CarouselSlide(
                     html.Div(
                         dmc.Paper(render_news()),
@@ -67,7 +76,10 @@ def render_interest_summary():
                         n_clicks=0,
                         style={"cursor": "pointer"}
                     )
-                ),
+                )
+            )
+        elif item == "실시간 검색어":
+            slides.append(
                 dmc.CarouselSlide(
                     html.Div(
                         dmc.Paper(render_realtime_search()),
@@ -75,8 +87,12 @@ def render_interest_summary():
                         n_clicks=0,
                         style={"cursor": "pointer"}
                     )
-                ),
-            ],
+                )
+            )
+
+    return html.Div([ 
+        dmc.Carousel(
+            children=slides,
             id="carousel-responsive",
             withIndicators=True,
             slideSize={"base": "100%", "sm": "50%", "md": "33.333333%"},

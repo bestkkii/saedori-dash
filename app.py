@@ -12,8 +12,9 @@ Config = DevConfig if ENV == "dev" else ProdConfig
 app = dash.Dash(
     __name__,
     external_stylesheets=dmc.styles.ALL, 
-    requests_pathname_prefix=Config.REQUESTS_PATHNAME_PREFIX
-    )
+    requests_pathname_prefix=Config.REQUESTS_PATHNAME_PREFIX,
+    suppress_callback_exceptions=True
+)
 
 app.title = "새도리"
 app.layout = dmc.MantineProvider(

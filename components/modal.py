@@ -11,6 +11,7 @@ def render_modals():
                 label="선택한 순서대로 우선순위가 부여됩니다.",
                 id="interest-multiselect",
                 data=["코인", "노래", "실시간 검색어", "뉴스"],
+                value=["코인", "노래", "실시간 검색어", "뉴스"],
                 w=400,
                 mb=10,
             ),
@@ -19,7 +20,6 @@ def render_modals():
             dmc.Space(h=20),
             dmc.Button("확인", id="modal-submit-button"),
             dcc.Store(id={'type': 'storage', 'index': 'local'}, storage_type='local'),
-            dmc.Text(id="interest-select-print-view"),
         ],
         className="modal-box"
     )
