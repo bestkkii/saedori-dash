@@ -26,7 +26,7 @@ def print_interest(value):
 
 # 관심 분야 선택 후 확인 버튼 클릭 시 저장
 @callback(
-    Output("saved-interest", "data"),
+    Output({'type': 'storage', 'index': 'local'}, "data"),
     Input("modal-submit-button", "n_clicks"),
     State("interest-multiselect", "value"),
     prevent_initial_call=True
