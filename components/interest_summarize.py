@@ -21,7 +21,11 @@ def render_music():
     
 def render_coin():
     return dmc.Container(
-        dmc.Stack(coin_summary_view(), ta="center"),
+        dmc.Stack([
+            dmc.Text("코인 현재가", fw=600, fz="h5"),
+            dmc.Text("5초 주기로 갱신됩니다.", c="dimmed", size="sm"),
+            coin_summary_view()
+            ]),
         className="summary-grid"
     )
 
