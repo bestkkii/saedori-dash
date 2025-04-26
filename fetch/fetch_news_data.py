@@ -35,4 +35,18 @@ def get_news_summary():
     finally:
         return [news_companies_summary, news_titles_summary]
 
+def get_news_detail():
+    data = fetch_news_data()
+    companies = []
+    titles = []
+    leads = []
+    urls = []
 
+    try:
+        companies = [item['company'] for item in data]
+        titles = [item['title'] for item in data]
+        leads = [item['lead'] for item in data]
+        urls = [item['url'] for item in data]
+
+    finally:
+        return [companies, titles, leads, urls]
