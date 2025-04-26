@@ -1,8 +1,9 @@
 import requests
+from config import Config
 
 def fetch_music_data():
     try:
-        response = requests.get("http://localhost:8080/api/v1/interest/detail", params={"category": "music"})
+        response = requests.get(f"{Config.API_BASE_URL}/api/v1/interest/detail", params={"category": "music"})
         response.raise_for_status()
         return response.json().get("result", [])
     except Exception as e:

@@ -4,10 +4,7 @@ from layout import create_layout
 import callbacks
 import requests
 import os
-from config import DevConfig, ProdConfig
-
-ENV = os.getenv("ENV", "dev")
-Config = DevConfig if ENV == "dev" else ProdConfig
+from config import Config
 
 app = dash.Dash(
     __name__,
