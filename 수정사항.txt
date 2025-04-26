@@ -1,0 +1,81 @@
+def create_news_detail_row(company, title, lead, url):
+    lead = '리드가 없습니다.' if lead =="" else lead
+    style_company = {
+        "whiteSpace": "nowrap",
+        "overflow": "hidden",
+        "textOverflow": "clip",
+        "color": "#808080",
+    }
+    style_title = {
+        "whiteSpace": "nowrap",
+        "overflow": "hidden",
+        "textOverflow": "ellipsis",
+    }
+    style_lead = {
+        "whiteSpace": "nowrap",
+        "overflow": "hidden",
+        "textOverflow": "clip",
+    }
+    style2 = {
+        "display": "flex",
+        "alignItems": "center",
+    }
+
+    return dmc.Grid([
+            dmc.GridCol(dmc.Text(company, fw=500, fz="h6", ta="left", style=style_company), span=1, style=style2),
+            dmc.GridCol(dmc.Text(title, fw=500, fz="h4", ta="left", style=style_title), span=6, style=style2),
+            dmc.GridCol(dmc.Text(lead, fw=500, fz="h5", ta="left", style=style_lead), span=5, style=style2),
+            dmc.GridCol(dmc.Divider(), span=12),
+        ])
+
+
+def create_news_detail(companies, titles, leads, urls):
+        return dmc.GridCol(dmc.Stack([
+                    create_news_detail_row(company, title, lead, url)
+                    for company, title, lead, url in zip(companies, titles, leads, urls)]), span=12
+                )
+
+
+def render_news_detail():
+    companies, titles, leads, urls = get_news_detail()
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Text("머리기사 목록", fw=600, fz="h5"),
+            dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
+            dmc.Space(h=5),
+            create_news_detail(companies, titles, leads, urls),
+        ])
+    ], className="detail-grid")
+
+
+
+
+
+
+def create_news_summary_row(company_summary, title_summary):
+    style_company = {
+        "whiteSpace": "nowrap",
+        "overflow": "hidden",
+        "textOverflow": "clip",
+        "color": "#808080",
+        "paddingLeft": "11px"
+    }
+    style_title = {
+        "whiteSpace": "nowrap",
+        "overflow": "hidden",
+        "textOverflow": "ellipsis",
+    }
+    style2 = {
+        "display": "flex",
+        "alignItems": "center",
+    }
+    return dmc.Grid([
+            dmc.GridCol(dmc.Text(company_summary, fw=500, size="sm", ta="left", style=style_company), span=2, style=style2),
+            dmc.GridCol(dmc.Text(title_summary, fw=500, size="md", ta="left", style=style_title), span=9, style=style2),
+            dmc.GridCol(dmc.Divider(), span=12),
+        ])
+
+def create_news_summary(news_companies_summary, news_titles_summary):
+    return dmc.Stack([
+                    create_news_summary_row(item[0], item[1])
+                    for item in zip(news_companies_summary, news_titles_summary)])
