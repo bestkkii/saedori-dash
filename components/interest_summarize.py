@@ -18,7 +18,7 @@ def render_music():
                 create_chart(title, chart_data)
                 for title, chart_data in musics.items()
             ]),
-        ])
+        ], gap="xs")
     ], className="summary-grid")
     
 def render_coin():
@@ -27,7 +27,7 @@ def render_coin():
             dmc.Text("코인 현재가", fw=600, fz="h5"),
             dmc.Text("5초 주기로 갱신됩니다.", c="dimmed", size="sm"),
             coin_summary_view()
-            ]),
+        ], gap="xs"),
         className="summary-grid"
     )
 
@@ -43,10 +43,11 @@ def render_realtime_search():
         dmc.Stack([
             dmc.Text("실시간 검색어 랭킹", fw=600, fz="h5"),
             dmc.Text("대한민국에서의 구글 실시간 검색어 순위입니다.", c="dimmed", size="sm"),
+            dmc.Space(h=5),
             dmc.Grid([
                 create_realtime_search_summary(realtime_search_keywords)
-            ], ta="center")
-        ]),
+            ])
+        ], gap="xs"),
         className="summary-grid"
     )
 

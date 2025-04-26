@@ -36,12 +36,20 @@ def render_realtime_search_detail():
                 dmc.GridCol([
                     dmc.Text("실시간 검색어 차트", fw=600, fz="h5"),
                 ], span=6),
-                dmc.GridCol(dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm")),
+                dmc.GridCol([
+                    dmc.Flex([
+                        dmc.Badge(color="green", radius="sm", size="md", variant="light"),
+                        dmc.Text("대한민국", size="xs", c="dimmed"),
+                        dmc.Badge(color="red", radius="sm", size="md", variant="light"),
+                        dmc.Text("미국", size="xs", c="dimmed"),
+                    ], justify="flex-end", gap="md")                    
+                ], span=3, offset=3)
             ]),
+            dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm"),
             dmc.Space(h=5),
             dmc.Grid([
                 create_realtime_search_chart(index, value)
                 for index, value in realtime_search_keywords.items()
-            ]),
+            ],),
         ])
     ], className="detail-grid")
