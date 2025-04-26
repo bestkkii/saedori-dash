@@ -38,9 +38,9 @@ def render_realtime_search_detail():
                 ], span=6),
                 dmc.GridCol([
                     dmc.Flex([
-                        dmc.Badge(color="red", radius="sm", size="md", variant="light"),
+                        dmc.Badge(color="green", radius="sm", size="md", variant="light"),
                         dmc.Text("대한민국", size="xs", c="dimmed"),
-                        dmc.Badge(color="blue", radius="sm", size="md", variant="light"),
+                        dmc.Badge(color="red", radius="sm", size="md", variant="light"),
                         dmc.Text("미국", size="xs", c="dimmed"),
                     ], justify="flex-end", gap="md")                    
                 ], span=3, offset=3)
