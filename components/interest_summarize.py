@@ -6,6 +6,8 @@ from .summary.music_summarize import create_chart
 from .interest_detail import render_interest_detail
 from .summary.realtime_search_summarize import create_realtime_search_summary
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
+from .summary.news_summarize import create_news_summary
+from fetch.fetch_news_data import get_news_summary
 
 def render_music():
     musics = parse_music_data()
@@ -32,8 +34,16 @@ def render_coin():
     )
 
 def render_news():
+    news_companies_summary, news_titles_summary = get_news_summary()
     return dmc.Container(
-        dmc.Stack("News summary", ta="center"),
+        dmc.Stack([
+            dmc.Text("머리기사", fw=600, fz="h5"),
+            dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
+            dmc.Space(h=5),
+            dmc.Grid([
+                create_news_summary(news_companies_summary, news_titles_summary)
+            ])
+        ], gap="xs"),
         className="summary-grid",
     )
 
