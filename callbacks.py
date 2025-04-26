@@ -5,8 +5,7 @@ import requests
 import dash_mantine_components as dmc
 from dash.dependencies import ALL
 from dash import ctx
-from components.interest_detail import render_music_detail
-from components.detail.realtime_search_detail import render_realtime_search_detail
+from components.interest_detail import render_music_detail, render_realtime_search_detail
 from components.interest_summarize import render_interest_summary
 from fetch.fetch_keywords import parse_keywords
 
