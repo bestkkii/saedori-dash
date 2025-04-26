@@ -40,9 +40,7 @@ def render_news():
             dmc.Text("머리기사", fw=600, fz="h5"),
             dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
             dmc.Space(h=5),
-            dmc.Grid([
-                create_news_summary(news_companies_summary, news_titles_summary)
-            ])
+            create_news_summary(news_companies_summary, news_titles_summary)
         ], gap="xs"),
         className="summary-grid",
     )
