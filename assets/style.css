@@ -94,7 +94,7 @@ setting 관련
 
 /* Summary box */
 .summary-grid {
-  height: 380px;
+  height: 400px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #ffffff;
@@ -134,7 +134,7 @@ Modal 관련
 .detail-container {
   height: 600px;
   max-width: 80%;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
