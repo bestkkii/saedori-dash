@@ -29,19 +29,35 @@ def download_modal():
     return dmc.Modal(
         title=dmc.Text("오늘의 단어와 관심사 분야의 컨텐츠 내려받기", className="modal-box"),
         id="download-modal",
-        style={
-            "height": "600px",         # ✅ 원하는 높이
-            "maxHeight": "90vh",       # ✅ 뷰포트 기준 최대 높이
-            "overflowY": "auto",       # ✅ 내부 콘텐츠 스크롤
-        },
         children=[
-            dcc.DatePickerRange(
-                id="date-picker",
-                min_date_allowed=date(1995, 8, 5),
-                max_date_allowed=date(2017, 9, 19),
-            ),
-            dmc.Space(h=20),
-            dmc.Button("다운로드", id="download-submit-button"),
+            dmc.Container(
+                children=[
+                    dmc.Group(
+                        children=[
+                            dcc.DatePickerRange(
+                                id="date-picker",
+                                min_date_allowed=date(2025, 1, 1),
+                                max_date_allowed=date.today(),
+                                style={'padding': '20px', 'margin': '10px', 'width': '500px'}
+                            ),
+                            dmc.Button(
+                                "다운로드", 
+                                id="download-submit-button",
+                                style={'margin': '10px 10px'}
+                            ),
+                        ],
+                        justify="flex-start",
+                        style={'width': '100%', 'flexWrap': 'nowrap', 'display': 'flex', 'alignItems': 'center'}
+                    )
+                ],
+                style={
+                    'height': '400px',
+                    'overflow': 'auto',
+                    'position': 'relative',
+                    'width': '800px'
+                }
+            )
         ],
-        className="download-modal-box"
+        className="download-modal-box",
+        size="xl"
     )
