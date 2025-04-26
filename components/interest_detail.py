@@ -17,13 +17,25 @@ def render_music_detail():
     musics = parse_music_data()
     return dmc.Container([
         dmc.Stack([
-            dmc.Text("뮤직 차트", fw=600, fz="h5"),
+            dmc.Grid([
+                dmc.GridCol([
+                    dmc.Text("뮤직 차트", fw=600, fz="h5"),
+                ], span=6),
+                dmc.GridCol([
+                    dmc.Flex([
+                        dmc.Image(src="assets/images/melon.png", radius=20, w=20, h=20),
+                        dmc.Text("국내 차트", size="xs", c="dimmed"),
+                        dmc.Image(src="assets/images/spotify.png", radius=20, w=20, h=20),
+                        dmc.Text("해외 차트", size="xs", c="dimmed"),
+                    ], justify="flex-end", gap="md")                    
+                ], span=3, offset=3)
+            ]),
             dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm"),
             dmc.Space(h=5),
             dmc.Grid([
                 create_chart(title, chart_data)
                 for title, chart_data in musics.items()
-            ]),
+            ], gutter="100"),
         ])
     ], className="detail-grid")
 
