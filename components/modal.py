@@ -2,6 +2,9 @@ import dash_mantine_components as dmc
 from dash import callback, Input, Output, State
 from dash import dcc
 from datetime import datetime, timedelta, date
+from fetch.fetch_downlonds import parse_downloads
+import pandas as pd
+import io
 
 def interest_modal():
     return dmc.Modal(
@@ -56,7 +59,8 @@ def download_modal():
                     'position': 'relative',
                     'width': '800px'
                 }
-            )
+            ),
+            dcc.Download(id="download-dataframe-csv")
         ],
         className="download-modal-box",
         size="xl"

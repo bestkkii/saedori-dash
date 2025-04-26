@@ -8,12 +8,16 @@ from dash import ctx
 from components.interest_detail import render_music_detail, render_realtime_search_detail
 from components.interest_summarize import render_interest_summary
 from fetch.fetch_keywords import parse_keywords
+from datetime import datetime
+from fetch.fetch_downlonds import parse_downloads
+from dash import dcc
+import io
 
 # 로컬 스토리지에 저장된 관심사 불러오기
 @callback(
-    Output("interest-multiselect", "value"),        # 모달창 multiselect 선택
-    Output("interest-select-view", "children"),     # 모달창 text로 출력
-    Output("carousel-container", "children"),       # Summary 칸에 노출
+    Output("interest-multiselect", "value"),                # 모달창 multiselect 선택
+    Output("interest-select-view", "children"),             # 모달창 text로 출력
+    Output("carousel-container", "children"),               # Summary 칸에 노출
     Input({'type': 'storage', 'index': 'local'}, 'data'),   # 로컬 스토리지에 바뀐게 있을 경우
     prevent_initial_call=False
 )
@@ -37,7 +41,7 @@ def select_interest(n_clicks, is_open):
 # 관심 분야 선택 후 확인 버튼 클릭 시 저장
 @callback(
     Output({'type': 'storage', 'index': 'local'}, "data"),
-    Input("modal-submit-button", "n_clicks"),
+    Input("interest-submit-button", "n_clicks"),
     State("interest-multiselect", "value"),
     prevent_initial_call=True
 )
@@ -168,3 +172,48 @@ def get_today_words(interest_categories):
         today_words.append(keywords["coin"][0])
 
     return today_words[0], today_words[1], today_words[2]
+
+
+# 키워드, 컨텐츠 다운로드
+@callback(
+    Output("download-dataframe-csv", "data"),
+    Input("download-submit-button", "n_clicks"),
+    State("date-picker", "start_date"),
+    State("date-picker", "end_date"),
+    State({'type': 'storage', 'index': 'local'}, 'data'),
+    prevent_initial_call=True
+)
+def handle_download(n_clicks, start_date, end_date, storage_data):
+    if n_clicks:
+        # 날짜를 타임스탬프로 변환
+        start_timestamp = int(datetime.strptime(start_date.split('T')[0], '%Y-%m-%d').timestamp())
+        end_timestamp = int(datetime.strptime(end_date.split('T')[0], '%Y-%m-%d').timestamp())
+        
+        # 로컬 스토리지에서 선택된 카테고리 가져오기
+        selected_categories = storage_data if storage_data else ["코인", "노래", "실시간 검색어", "뉴스"]
+        
+        # 카테고리 매핑 (한글 -> API 카테고리)
+        category_mapping = {
+            "뉴스": "news",
+            "실시간 검색어": "realtime-search",
+            "노래": "music",
+            "코인": "coin"
+        }
+        
+        # 선택된 카테고리를 API 카테고리로 변환
+        category = [category_mapping[cat] for cat in selected_categories if cat in category_mapping]
+        
+        # 기간 동안 선택한 카테고리에 해당하는 데이터 가져오기
+        category_dfs = parse_downloads(categories=",".join(category), start_date=start_timestamp, end_date=end_timestamp)
+        
+        if not category_dfs:
+            return None
+            
+        # Excel 파일로 저장
+        output = io.BytesIO()
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            for category, df in category_dfs.items():
+                df.to_excel(writer, sheet_name=category, index=False)
+        
+        output.seek(0)
+        return dcc.send_bytes(output.getvalue(), "새도리.xlsx")
