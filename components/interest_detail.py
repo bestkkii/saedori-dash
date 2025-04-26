@@ -2,8 +2,10 @@ import dash_mantine_components as dmc
 from dash import html
 from fetch.fetch_music_data import parse_music_data
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
+from fetch.fetch_news_data import get_news_detail
 from .detail.music_detail import create_chart
 from .detail.realtime_search_detail import create_realtime_search_chart
+from .detail.news_detail import create_news_detail
 
 def render_interest_detail():
     return dmc.Collapse(
@@ -51,5 +53,21 @@ def render_realtime_search_detail():
                 create_realtime_search_chart(index, value)
                 for index, value in realtime_search_keywords.items()
             ],),
+        ])
+    ], className="detail-grid")
+
+def render_news_detail():
+    companies, titles, leads, urls = get_news_detail()
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Grid([
+                dmc.GridCol([
+                    dmc.Text("머리기사 목록", fw=600, fz="h5"),
+                ], span=12),
+            ]),
+            dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
+            dmc.Space(h=5),
+            dmc.Grid([create_news_detail(companies, titles, leads, urls)],
+                     ),
         ])
     ], className="detail-grid")
