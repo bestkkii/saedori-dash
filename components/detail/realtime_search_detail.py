@@ -1,5 +1,4 @@
 import dash_mantine_components as dmc
-from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
 from dash import html
 
 def create_realtime_search_chart(country, realtime_search_keyword):
