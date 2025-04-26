@@ -1,7 +1,11 @@
 import dash
 import dash_mantine_components as dmc
 from layout import create_layout
-import callbacks
+import callbacks.coin_callbacks as coin_callbacks
+import callbacks.interest_callbacks as interest_callbacks
+import callbacks.detail_callbacks as detail_callbacks
+import callbacks.download_callbacks as download_callbacks
+import callbacks.keywords_callbacks as keywords_callbacks
 import requests
 import os
 from config import DevConfig, ProdConfig
