@@ -1,8 +1,9 @@
 import requests
+from config import Config
 
 def fetch_keywords():
     try:
-        response = requests.get("http://localhost:8080/api/v1/keywords")
+        response = requests.get(f"{Config.API_BASE_URL}/api/v1/keywords")
         response.raise_for_status()
         return response.json()
     except Exception as e:
