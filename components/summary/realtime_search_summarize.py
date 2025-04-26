@@ -14,9 +14,13 @@ def create_realtime_search_summary(realtime_search_keyword):
 def create_realtime_search_chart_row(rank, realtime_search_keyword):
     return dmc.Box([
         dmc.Grid([
-            dmc.GridCol(dmc.Text(str(rank), fw=600), span=4),
-            dmc.GridCol(dmc.Text(realtime_search_keyword, fw=600), span=3),
+            dmc.GridCol(
+                dmc.Flex([
+                        dmc.Avatar(str(rank), fw=500, color="green", radius="sm", size="sm"),
+                        dmc.Space(w=3),
+                        dmc.Text(realtime_search_keyword, fw=500, size="md", style={"align-self": "center"})
+                    ], justify="flex-start", gap="xl")
+            ,  offset=1),
             dmc.GridCol(dmc.Divider()),
-                
         ])
     ])
