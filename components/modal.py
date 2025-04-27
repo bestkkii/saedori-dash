@@ -69,7 +69,7 @@ def download_modal():
                                 max_date_allowed=date.today(),
                                 style={'padding': '20px', 'margin': '10px', 'width': '500px'}
                             ),
-                            dmc.Button("다운로드", "download-submit-button", n_clicks=0, variant="filled", color="black"),
+                            dmc.Button("다운로드", id="download-submit-button", n_clicks=0, variant="filled", color="black"),
                         ],
                         justify="flex-start",
                         style={'width': '100%', 'flexWrap': 'nowrap', 'display': 'flex', 'alignItems': 'center'}

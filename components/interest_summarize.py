@@ -14,7 +14,7 @@ def render_music():
     return dmc.Container([
         dmc.Stack([
             dmc.Text("뮤직 차트", fw=600, fz="h5", className="font"),
-            dmc.Text("국내 차트는 멜론 차트, 해외 차트는 스포티파이 차트입니다.", c="dimmed", size="sm", className="font"),
+            dmc.Text("국내 차트는 멜론, 해외 차트는 스포티파이입니다.", c="dimmed", size="sm", className="font"),
             dmc.Space(h=5),
             dmc.Grid([
                 create_chart(title, chart_data)
