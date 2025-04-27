@@ -72,22 +72,6 @@ def render_news_detail():
     companies, titles, leads, urls = get_news_detail()
     return dmc.Container([
         dmc.Stack([
-            dmc.Grid([
-                dmc.GridCol([
-                    dmc.Text("머리기사 목록", fw=600, fz="h5"),
-                ], span=12),
-            ]),
-            dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
-            dmc.Space(h=5),
-            dmc.Grid([create_news_detail(companies, titles, leads, urls)],
-                     ),
-        ])
-    ], className="detail-grid")
-
-def render_news_detail():
-    companies, titles, leads, urls = get_news_detail()
-    return dmc.Container([
-        dmc.Stack([
             dmc.Text("머리기사 목록", fw=600, fz="h5"),
             dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
             dmc.Space(h=5),
