@@ -1,6 +1,6 @@
 import dash_mantine_components as dmc
-from dash import html, dcc, callback, Input, Output
-from .summary.coin import coin_summary_view
+from dash import html
+from .summary.coin_summarize import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
 from .summary.music_summarize import create_chart
 from .interest_detail import render_interest_detail

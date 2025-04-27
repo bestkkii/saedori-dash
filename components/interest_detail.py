@@ -3,9 +3,11 @@ from dash import html
 from fetch.fetch_music_data import parse_music_data
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
 from fetch.fetch_news_data import get_news_detail
+from fetch.fetch_coin_data import fetch_coin_data
 from .detail.music_detail import create_chart
 from .detail.realtime_search_detail import create_realtime_search_chart
 from .detail.news_detail import create_news_detail
+from .detail.coin_detail import create_coin_chart
 
 def render_interest_detail():
     return dmc.Collapse(
