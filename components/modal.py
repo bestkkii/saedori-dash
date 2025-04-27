@@ -2,7 +2,7 @@ import dash_mantine_components as dmc
 from dash import callback, Input, Output, State
 from dash import dcc
 from datetime import datetime, timedelta, date
-from fetch.fetch_downlonds import parse_downloads
+from fetch.fetch_downlonds_data import parse_downloads
 import pandas as pd
 import io
 from dash_iconify import DashIconify

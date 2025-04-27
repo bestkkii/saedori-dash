@@ -1,3 +1,32 @@
+/* 
+관심사 분야 Detail 
+*/
+
+/* Detail container */
+.detail-container {
+  height: 600px;
+  max-width: 80%;
+  margin-bottom: 20px;
+}
+
+/* Detail 내용 박스 */
+.detail-container {
+  height: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 30px 30px;
+}
+
+/* Detail container */
+.detail-grid {
+  height: 600px;
+  max-width: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 /* 뮤직 */
 .chart-detail-row {
     background-color: #F6F6F6;
@@ -15,5 +44,3 @@
     flex: 1 1 33%;
     max-width: 30%;
 }
-
-/* "border": "1px solid #ccc", "boxShadow": "2px 2px 5px rgba(0,0,0,0.1)", "borderRadius": "5px" */

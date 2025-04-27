@@ -7,9 +7,9 @@ from dash.dependencies import ALL
 from dash import ctx
 from components.interest_detail import render_music_detail, render_realtime_search_detail, render_news_detail, render_coin_detail
 from components.interest_summarize import render_interest_summary
-from fetch.fetch_keywords import parse_keywords
+from fetch.fetch_keywords_data import parse_keywords
 from datetime import datetime
-from fetch.fetch_downlonds import parse_downloads
+from fetch.fetch_downlonds_data import parse_downloads
 from dash import dcc
 import io
 

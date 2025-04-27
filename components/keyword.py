@@ -1,6 +1,6 @@
 import dash_mantine_components as dmc
 from dash import html
-from fetch.fetch_keywords import parse_keywords
+from fetch.fetch_keywords_data import parse_keywords
 import random
 
 def render_today_word():
@@ -11,7 +11,7 @@ def render_today_word():
             dmc.GridCol(
                 dmc.Group([
                     dmc.Text("1", fw=600, size="sm", c="dimmed"),
-                    dmc.Text("오늘의 단어 1", fw=600, id="today-word-1", className="today-random-text")
+                    dmc.Text("오늘의 단어 1", fw=600, id="today-word-1", className="font")
                 ], gap="xs", align="center", justify="center"),
                 className="keyword-box",
                 span="auto"
@@ -19,7 +19,7 @@ def render_today_word():
             dmc.GridCol(
                 dmc.Group([
                     dmc.Text("2", fw=600, size="sm", c="dimmed"),
-                    dmc.Text("오늘의 단어 2", fw=600, id="today-word-2", className="today-random-text")
+                    dmc.Text("오늘의 단어 2", fw=600, id="today-word-2", className="font")
                 ], gap="xs", align="center", justify="center"),
                 className="keyword-box",
                 span="auto"
@@ -27,7 +27,7 @@ def render_today_word():
             dmc.GridCol(
                 dmc.Group([
                     dmc.Text("3", fw=600, size="sm", c="dimmed"),
-                    dmc.Text("오늘의 단어 3", fw=600, id="today-word-3", className="today-random-text")
+                    dmc.Text("오늘의 단어 3", fw=600, id="today-word-3", className="font")
                 ], gap="xs", align="center", justify="center"),
                 className="keyword-box",
                 span="auto"
