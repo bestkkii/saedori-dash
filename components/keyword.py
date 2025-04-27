@@ -12,17 +12,17 @@ def render_today_word():
         id="today-word-grid",
         children=[
             dmc.GridCol(
-                dmc.Text("오늘의 단어 1", ta="center", fw=600, id="today-word-1"),
+                dmc.Text("오늘의 단어 1", ta="center", fw=600, id="today-word-1", className="today-random-text"),
                 className="keyword-box",
                 span="auto"
             ),
             dmc.GridCol(
-                dmc.Text("오늘의 단어 2", ta="center", fw=600, id="today-word-2"),
+                dmc.Text("오늘의 단어 2", ta="center", fw=600, id="today-word-2", className="today-random-text"),
                 className="keyword-box",
                 span="auto"
             ),
             dmc.GridCol(
-                dmc.Text("오늘의 단어 3", ta="center", fw=600, id="today-word-3"),
+                dmc.Text("오늘의 단어 3", ta="center", fw=600, id="today-word-3", className="today-random-text"),
                 className="keyword-box",
                 span="auto"
             ),
@@ -49,7 +49,7 @@ def render_random_word():
                 className="random-word-text"
             ),
             dmc.GridCol(
-                dmc.Text(random_keywords[0], ta="center"),
+                dmc.Text(random_keywords[0], ta="center", className="random-word-text"),
                 className="random-box",
                 span="auto"
             ),
@@ -59,7 +59,7 @@ def render_random_word():
                 className="random-word-text"
             ),
             dmc.GridCol(
-                dmc.Text(random_keywords[1], ta="center"),
+                dmc.Text(random_keywords[1], ta="center", className="random-word-text"),
                 className="random-box",
                 span="auto"
             ),

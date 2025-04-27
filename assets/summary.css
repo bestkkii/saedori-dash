@@ -27,6 +27,7 @@
     margin-left: 30px; /* 기본 여백 제거 */
     font-size: 18px;
     font-weight: 800;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .coin-right-text {
@@ -34,6 +35,7 @@
     text-align: right; /* 오른쪽 정렬 */
     font-size: 18px;
     font-weight: 600;
+    font-family: 'Pretendard', sans-serif;
 }
 
 /* 뮤직 */
