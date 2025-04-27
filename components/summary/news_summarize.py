@@ -20,8 +20,8 @@ def create_news_summary_row(company_summary, title_summary):
         "alignItems": "center",
     }
     return dmc.Grid([
-            dmc.GridCol(dmc.Text(company_summary, fw=500, size="sm", ta="left", style=style_company), span=2, style=style2),
-            dmc.GridCol(dmc.Text(title_summary, fw=500, size="md", ta="left", style=style_title), span=10, style=style2),
+            dmc.GridCol(dmc.Text(company_summary, fw=500, size="sm", ta="left", style=style_company, className="font"), span=2, style=style2),
+            dmc.GridCol(dmc.Text(title_summary, fw=500, size="md", ta="left", style=style_title, className="font"), span=10, style=style2),
             dmc.GridCol(dmc.Divider(), span=12),
         ], style={"width": "100%"})
 

@@ -31,7 +31,7 @@ def create_layout():
 
             dmc.Container(
                 html.Div(id="carousel-container"),
-                className="big-container",
+                className="carousel-container",
             ),
 
             dmc.Container(
