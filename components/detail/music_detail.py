@@ -23,8 +23,8 @@ def create_chart_row(rank, title, artist, url):
         dmc.GridCol(dmc.Text(str(rank), fw="700", size="xl", className="font"), span="content", style={"text-align": "center"}),
         dmc.GridCol(
             dmc.Stack([
-                dmc.Text(dcc.Link(title, href=url, style={"textDecoration": "none", "color": "inherit"}), fz="h5", ta="center", fw=700, className="font"),
-                dmc.Text(artist, c="dimmed", size="sm", ta="center", className="font"),
+                dmc.Text(dmc.Anchor(title, href=url, style={"textDecoration": "none", "color": "inherit"}, target="_blank"), fz="h5", ta="center", fw=700),
+                dmc.Text(artist, c="dimmed", size="sm", ta="center"),
             ], gap=0, align="center"), span="auto", style={"text-align": "center"}
         ),
     ], align="center", justify="center", gutter="md")
