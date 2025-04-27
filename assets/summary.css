@@ -24,16 +24,16 @@
 }
 
 .coin-left-text {
-    margin-left: 30px; /* 기본 여백 제거 */
-    font-size: 18px;
+    margin-left: 10px; /* 기본 여백 제거 */
+    font-size: 16px;
     font-weight: 800;
     font-family: 'Pretendard', sans-serif;
 }
 
 .coin-right-text {
-    margin-right: 30px; /* 기본 여백 제거 */
+    margin-right: 10px; /* 기본 여백 제거 */
     text-align: right; /* 오른쪽 정렬 */
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     font-family: 'Pretendard', sans-serif;
 }
@@ -44,4 +44,16 @@
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 20px 20px;
+}
+
+.rank-text {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.title-text {
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Pretendard', sans-serif;
 }

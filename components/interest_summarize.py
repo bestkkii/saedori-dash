@@ -127,9 +127,9 @@ def render_interest_summary(selected_items):
                     "transition": "width 250ms ease",
                     "&[data-active]": {
                         "width": "40px",
-                        "backgroundColor": "#28a745"
+                        "backgroundColor": "#9D9D9D"
                     },
-                    "backgroundColor": "#d2f4e8"
+                    "backgroundColor": "#979797"
                 }
             }
         ),

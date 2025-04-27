@@ -34,7 +34,7 @@ def render_music_detail():
                     ], justify="flex-end", gap="md")                    
                 ], span=3, offset=3)
             ]),
-            dmc.Text("국내 차트는 멜론 차트, 해외 차트는 스포티파이 차트입니다.", c="dimmed", size="sm", className="font"),
+            dmc.Text("국내 차트는 멜론, 해외 차트는 스포티파이입니다.", c="dimmed", size="sm", className="font"),
             dmc.Space(h=5),
             dmc.Grid([
                 create_chart(title, chart_data)
