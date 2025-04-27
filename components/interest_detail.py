@@ -80,3 +80,24 @@ def render_news_detail():
             create_news_detail(companies, titles, leads, urls),
         ])
     ], className="detail-grid")
+
+def render_coin_detail():
+    bitcoin_data = fetch_coin_data("KRW-BTC")
+    ethereum_data = fetch_coin_data("KRW-ETH")
+    ripple_data = fetch_coin_data("KRW-XRP")
+
+    bitcoin_chart = create_coin_chart(bitcoin_data, "비트코인 BTC")
+    ethereum_chart = create_coin_chart(ethereum_data, "이더리움 ETH")
+    ripple_chart = create_coin_chart(ripple_data, "리플 XRP")
+    
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Text("코인 현재가", fw=600, fz="h5"),
+            dmc.Text("최근 6개월에 대한 차트입니다.", c="dimmed", size="sm"),
+            dmc.Grid([
+                dmc.GridCol(bitcoin_chart, span=4, className="coin-chart"),
+                dmc.GridCol(ethereum_chart, span=4, className="coin-chart"),
+                dmc.GridCol(ripple_chart, span=4, className="coin-chart"),
+            ])
+        ])
+    ], className="detail-grid")
