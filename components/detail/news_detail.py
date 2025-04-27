@@ -1,4 +1,5 @@
 import dash_mantine_components as dmc
+import html
 
 def create_news_detail_row(company, title, lead, url):
     lead = '리드가 없습니다.' if lead =="" else lead
@@ -25,7 +26,7 @@ def create_news_detail_row(company, title, lead, url):
 
     return dmc.Grid([
             dmc.GridCol(dmc.Text(company, fw=500, fz="h6", ta="left", style=style_company), span=1, style=style2),
-            dmc.GridCol(dmc.Text(title, fw=500, fz="h4", ta="left", style=style_title), span=6, style=style2),
+            dmc.GridCol(dmc.Anchor(title, fw=500, fz="h4", ta="left", style=style_title, href=url, target="_blank"),span=6, style=style2),
             dmc.GridCol(dmc.Text(lead, fw=500, fz="h5", ta="left", style=style_lead), span=5, style=style2),
             dmc.GridCol(dmc.Divider(), span=12),
         ])
