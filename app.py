@@ -3,7 +3,6 @@ import dash_mantine_components as dmc
 from layout import create_layout
 import callbacks
 import requests
-import os
 from config import Config
 
 app = dash.Dash(

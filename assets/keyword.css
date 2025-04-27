@@ -1,0 +1,42 @@
+/* 
+오늘의 단어, 랜덤 키워드 관련 
+*/
+
+/* container 내부 text와 keyword box 배치 관련 */
+.keyword-grid {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 10px 50px;
+  justify-content: center;
+}
+
+/* top3 keyword box 관련 */
+.keyword-box {
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
+  color: #3c3c3c;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #D3FFE7 0%, #EFFFF6 100%);
+  margin: 0 40px;
+}
+
+/* random keyword box 관련 */
+.random-box {
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 16px 0;
+  color: #3c3c3c;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #FFC5C5 0%, #FFF7F8 100%);
+}
+
+/* random keyword box 사이의 text(오늘은, 그리고, 조합을 추천해!) 관련 */
+.random-word-text {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', sans-serif;
+}

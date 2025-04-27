@@ -1,17 +1,43 @@
-/* 코인 */
+/* 
+관심사 분야 Summary 
+*/
 
+/* Summary 3개 감싸는 컨테이너 */
+.carousel-container{
+  height: 480px;
+  max-width: 80%;
+  margin-top: 10px;
+}
+
+/* Summary box */
+.summary-grid {
+  height: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 20px 20px;
+  margin: 10px 10px;
+}
+
+/* 캐러셀 관련 */
+.carousel-responsive {
+  height: 450px;
+  padding: 0px 50px;      /* 화살표 밖으로 */
+}
+
+/* 코인 */
 .coin-summary-view {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center; /* 텍스트 중앙 정렬 */
+    text-align: center;
     padding: 10px 0;
 }
 
 .coin-divide-line {
-    width: 100%; /* 구분선의 너비를 조정 */
-    margin: 10px 0; /* 구분선 위아래 여백 */
+    width: 100%;
+    margin: 10px 0;
     color: lightgray;
     border: 1px solid lightgray;
     
@@ -19,20 +45,20 @@
 
 .coin-position {
     display: flex;
-    justify-content: space-between; /* 왼쪽과 오른쪽으로 정렬 */
-    width: 100%; /* 전체 너비 사용 */
+    justify-content: space-between;
+    width: 100%;
 }
 
 .coin-left-text {
-    margin-left: 10px; /* 기본 여백 제거 */
+    margin-left: 10px; 
     font-size: 16px;
     font-weight: 800;
     font-family: 'Pretendard', sans-serif;
 }
 
 .coin-right-text {
-    margin-right: 10px; /* 기본 여백 제거 */
-    text-align: right; /* 오른쪽 정렬 */
+    margin-right: 10px;
+    text-align: right;
     font-size: 16px;
     font-weight: 600;
     font-family: 'Pretendard', sans-serif;
