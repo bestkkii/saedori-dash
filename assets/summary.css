@@ -5,7 +5,7 @@
 /* Summary 3개 감싸는 컨테이너 */
 .carousel-container{
   height: 480px;
-  max-width: 80%;
+  max-width: 90%;
   margin-top: 10px;
 }
 

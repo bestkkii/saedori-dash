@@ -1,6 +1,6 @@
 import dash_mantine_components as dmc
 from dash import html
-from fetch.fetch_keywords import parse_keywords
+from fetch.fetch_keywords_data import parse_keywords
 import random
 
 def render_today_word():
