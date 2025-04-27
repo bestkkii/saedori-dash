@@ -1,0 +1,34 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* 폰트 */
+.font {
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 
+Title, 오늘의 단어, 랜덤 단어, 다운로드 및 설정 감싸는 컨테이너 
+*/
+
+.small-container {
+  height: 80px;
+  max-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* 
+Title 관련 
+*/
+
+.title-container {
+  align-items: center;
+  height: 80px;
+}
+.title-text {
+  text-align: center;
+  flex: 1;
+  font-family: 'Pretendard', sans-serif;
+}

@@ -1,0 +1,39 @@
+/* 
+setting 관련
+*/
+.setting-container {
+  height: 60px;
+  max-width: 80%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/*
+Modal 관련
+*/
+.interest-modal-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+}
+
+.download-modal-box {
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+}
+
+.interest-select-view {
+  background: linear-gradient(to bottom, #D3FFE7 0%, #EFFFF6 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 45px;
+  font-size: 14px;
+  color: #626262;
+}

@@ -1,4 +1,5 @@
 import dash_mantine_components as dmc
+from dash_iconify import DashIconify
 
 def render_setting_buttons():
     return dmc.Flex(
@@ -8,8 +9,22 @@ def render_setting_buttons():
         children=[
             dmc.Group(
                 [
-                    dmc.Button("다운로드", id="download-button", color="blue", n_clicks=0),
-                    dmc.Button("관심사 설정", id="interest-button", color="gray", n_clicks=0),
+                    dmc.ActionIcon(
+                        DashIconify(icon="material-symbols:download-rounded", width=35, height=35), 
+                        color="black", 
+                        variant="transparent", 
+                        style={"width": "25px", "height": "25px"},
+                        id="download-button",
+                        n_clicks=0,
+                    ),
+                    dmc.ActionIcon(
+                        DashIconify(icon="material-symbols:settings-rounded", width=35, height=35), 
+                        color="black", 
+                        variant="transparent", 
+                        style={"width": "25px", "height": "25px"},
+                        id="interest-button",
+                        n_clicks=0,
+                    ),
                 ],
                 gap="lg",
             )

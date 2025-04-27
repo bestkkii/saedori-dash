@@ -22,7 +22,7 @@ def create_realtime_search_chart_row(country, rank, realtime_search_keyword):
     if country == "us":
         rank_color = "red"
     return dmc.Grid([
-            dmc.GridCol(dmc.Avatar(str(rank), radius="sm", fw=500, color=rank_color), span=4,),
-            dmc.GridCol(dmc.Text(realtime_search_keyword, fw=500, fz="h5", ta="center"), span="content", offset=1, style={"align-self": "center"}),
+            dmc.GridCol(dmc.Avatar(str(rank), radius="sm", fw=500, color=rank_color, className="font"), span=4,),
+            dmc.GridCol(dmc.Text(realtime_search_keyword, fw=500, fz="h5", ta="center", className="font"), span="content", offset=1, style={"align-self": "center"}),
             dmc.GridCol(dmc.Divider()),
         ])
