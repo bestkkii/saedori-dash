@@ -5,7 +5,7 @@ import requests
 import dash_mantine_components as dmc
 from dash.dependencies import ALL
 from dash import ctx
-from components.interest_detail import render_music_detail, render_realtime_search_detail, render_news_detail
+from components.interest_detail import render_music_detail, render_realtime_search_detail, render_news_detail, render_coin_detail
 from components.interest_summarize import render_interest_summary
 from fetch.fetch_keywords import parse_keywords
 from datetime import datetime
@@ -103,7 +103,7 @@ def show_detail(n_clicks):
     if name == "music":
         return render_music_detail(), True
     elif name == "coin":
-        return dmc.Text("코인 상세 설명입니다."), True
+        return render_coin_detail(), True
     elif name == "news":
         return render_news_detail(), True
     elif name == "realtime":

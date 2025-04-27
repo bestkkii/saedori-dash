@@ -3,9 +3,11 @@ from dash import html
 from fetch.fetch_music_data import parse_music_data
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
 from fetch.fetch_news_data import get_news_detail
+from fetch.fetch_coin_data import fetch_coin_data
 from .detail.music_detail import create_chart
 from .detail.realtime_search_detail import create_realtime_search_chart
 from .detail.news_detail import create_news_detail
+from .detail.coin_detail import create_coin_chart
 
 def render_interest_detail():
     return dmc.Collapse(
@@ -76,5 +78,26 @@ def render_news_detail():
             dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm"),
             dmc.Space(h=5),
             create_news_detail(companies, titles, leads, urls),
+        ])
+    ], className="detail-grid")
+
+def render_coin_detail():
+    bitcoin_data = fetch_coin_data("KRW-BTC")
+    ethereum_data = fetch_coin_data("KRW-ETH")
+    ripple_data = fetch_coin_data("KRW-XRP")
+
+    bitcoin_chart = create_coin_chart(bitcoin_data, "비트코인 BTC")
+    ethereum_chart = create_coin_chart(ethereum_data, "이더리움 ETH")
+    ripple_chart = create_coin_chart(ripple_data, "리플 XRP")
+    
+    return dmc.Container([
+        dmc.Stack([
+            dmc.Text("코인 현재가", fw=600, fz="h5"),
+            dmc.Text("최근 6개월에 대한 차트입니다.", c="dimmed", size="sm"),
+            dmc.Grid([
+                dmc.GridCol(bitcoin_chart, span=4, className="coin-chart"),
+                dmc.GridCol(ethereum_chart, span=4, className="coin-chart"),
+                dmc.GridCol(ripple_chart, span=4, className="coin-chart"),
+            ])
         ])
     ], className="detail-grid")
