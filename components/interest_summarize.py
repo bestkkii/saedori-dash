@@ -60,7 +60,6 @@ def render_realtime_search():
     )
 
 def render_interest_summary(selected_items):
-
     slides = []
 
     for item in selected_items:
@@ -120,6 +119,18 @@ def render_interest_summary(selected_items):
             align="start",
             controlsOffset="0px",
             controlSize=32,
-            className="carousel-container",
+            className="carousel-responsive",
+            styles={
+                "indicator": {
+                    "width": "20px",
+                    "height": "5px",
+                    "transition": "width 250ms ease",
+                    "&[data-active]": {
+                        "width": "40px",
+                        "backgroundColor": "#28a745"
+                    },
+                    "backgroundColor": "#d2f4e8"
+                }
+            }
         ),
     ])
