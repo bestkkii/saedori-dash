@@ -76,3 +76,4 @@ watchdog==6.0.0
 Werkzeug==3.0.6
 zipp==3.21.0
 dash-mantine-components==1.1.1
+dash-iconify==0.1.2
