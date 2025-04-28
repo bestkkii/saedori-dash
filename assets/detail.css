@@ -4,14 +4,14 @@
 
 /* Detail container */
 .detail-container {
-  height: 600px;
+  height: 700px;
   max-width: 80%;
   margin-bottom: 20px;
 }
 
 /* Detail 내용 박스 */
 .detail-container {
-  height: 600px;
+  height: 700px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #ffffff;
@@ -20,9 +20,9 @@
 
 /* Detail container */
 .detail-grid {
-  height: 600px;
+  height: 700px;
   max-width: 90%;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 

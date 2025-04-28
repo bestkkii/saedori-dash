@@ -17,7 +17,7 @@ def get_today_words(interest_categories):
     category_mapping = {
         "코인": "coin",
         "노래": "music",
-        "실시간 검색어": "search_word",
+        "실시간 검색어": "realtime_search",
         "뉴스": "news"
     }
     
@@ -46,7 +46,7 @@ def get_today_words(interest_categories):
 
     # 키워드가 3개 미만일 경우 '실시간 검색어', '뉴스', '코인' 키워드 사용
     while len(today_words) < 3:
-        today_words.append(keywords["search_word"][0])
+        today_words.append(keywords["realtime_search"][0])
         today_words.append(keywords["news"][0])
         today_words.append(keywords["coin"][0])
 
