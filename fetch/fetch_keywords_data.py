@@ -15,14 +15,14 @@ def parse_keywords():
     if not data:
         return {
             "music": [],
-            "search_word": [],
+            "realtime_search": [],
             "news": [],
             "coin": []
         }
 
     keywords = {
         "music": [],
-        "search_word": [],
+        "realtime_search": [],
         "news": [],
         "coin": []
     }

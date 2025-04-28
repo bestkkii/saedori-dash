@@ -12,12 +12,13 @@ def create_chart(title, chart_data):
 
 def create_chart_row(rank, title, artist):
     return dmc.Grid([
+        dmc.Space(w=20),
         dmc.GridCol(dmc.Text(str(rank), fw="700", className="rank-text"), span="content"),
-        dmc.Space(w=40),
+        dmc.Space(w=20),
         dmc.GridCol(
             dmc.Stack([
-                dmc.Text(title, fw=700, className="title-text"),
-                dmc.Text(artist, c="dimmed", size="sm", className="font"),
+                dmc.Text(title, size="sm", className="font", style={"white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}),
+                dmc.Text(artist, c="dimmed", size="sm", className="font", style={"white-space": "nowrap", "overflow": "hidden", "text-overflow": "ellipsis"}),
             ], gap=0), span="content"
         ),
     ], align="center", gutter="xs")

@@ -3,7 +3,6 @@ from dash import html
 from .summary.coin_summarize import coin_summary_view
 from fetch.fetch_music_data import parse_music_data
 from .summary.music_summarize import create_chart
-from .interest_detail import render_interest_detail
 from .summary.realtime_search_summarize import create_realtime_search_summary
 from fetch.fetch_realtime_search_keyword_data import parse_realtime_search_keyword_data
 from .summary.news_summarize import create_news_summary
@@ -28,6 +27,7 @@ def render_coin():
         dmc.Stack([
             dmc.Text("코인 현재가", fw=600, fz="h5", className="font"),
             dmc.Text("5초 주기로 갱신됩니다.", c="dimmed", size="sm", className="font"),
+            dmc.Space(h=10),
             coin_summary_view()
         ], gap="xs"),
         className="summary-grid"
@@ -39,7 +39,7 @@ def render_news():
         dmc.Stack([
             dmc.Text("머리기사", fw=600, fz="h5", className="font"),
             dmc.Text("언론사의 머리기사를 모아서 보여드립니다.", c="dimmed", size="sm", className="font"),
-            dmc.Space(h=5),
+            dmc.Space(h=20),
             create_news_summary(news_companies_summary, news_titles_summary)
         ], gap="xs"),
         className="summary-grid",
@@ -51,7 +51,7 @@ def render_realtime_search():
         dmc.Stack([
             dmc.Text("실시간 검색어 랭킹", fw=600, fz="h5", className="font"),
             dmc.Text("대한민국에서의 구글 실시간 검색어 순위입니다.", c="dimmed", size="sm", className="font"),
-            dmc.Space(h=5),
+            dmc.Space(h=20),
             dmc.Grid([
                 create_realtime_search_summary(realtime_search_keywords)
             ])
