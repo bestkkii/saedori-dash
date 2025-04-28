@@ -20,7 +20,7 @@ def interest_modal():
             dmc.Container(
                 children=[
                     dmc.MultiSelect(
-                        description="선택한 순서대로 우선순위가 부여됩니다.",
+                        description="선택한 순서대로 화면에 보여집니다.",
                         id="interest-multiselect",
                         data=["코인", "노래", "실시간 검색어", "뉴스"],
                         value=["코인", "노래", "실시간 검색어", "뉴스"],

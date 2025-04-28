@@ -61,7 +61,7 @@ def render_realtime_search_detail():
                     ], justify="flex-end", gap="md")                    
                 ], span=3, offset=3)
             ]),
-            dmc.Text("30초 주기로 갱신됩니다.", c="dimmed", size="sm", className="font"),
+            dmc.Text("구글의 실시간 검색어 차트입니다.", c="dimmed", size="sm", className="font"),
             dmc.Space(h=5),
             dmc.Grid([
                 create_realtime_search_chart(index, value)
