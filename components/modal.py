@@ -73,7 +73,8 @@ def download_modal():
                         ],
                         justify="flex-start",
                         style={'width': '100%', 'flexWrap': 'nowrap', 'display': 'flex', 'alignItems': 'center'}
-                    )
+                    ),
+                    dmc.Alert(id="download-alert", style={"display": "none"})
                 ],
                 style={
                     'height': '400px',
